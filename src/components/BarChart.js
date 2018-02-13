@@ -4,20 +4,22 @@ import { scaleLinear, scaleBand } from 'd3-scale';
 import { max } from 'd3-array';
 
 import Bars from './Bars';
+import XAxis from './XAxis';
 
-class BarChart extends Component {
+export default class BarChart extends Component {
 
   render() {
     const { data, size } = this.props;
     const heightLimit = size[1];
     const widthLimit = size[0];
+    const marginBottom = 100;
 
     // Given a value from a continuous domain, returns the height of each column
     // to fit inside max chart height
     const yScale = scaleLinear()
       // Domain is the crime counts
       .domain([0, max(data, row => row.crime)])
-      .range([heightLimit, 0]);
+      .range([heightLimit - marginBottom, 0]);
 
     // Given a value from a discrete domain, returns width of each column to fit
     // inside max chart width
@@ -34,11 +36,15 @@ class BarChart extends Component {
           data={data}
           xScale={xScale}
           yScale={yScale}
+          marginBottom={marginBottom}
+          heightLimit={heightLimit}
+        />
+        <XAxis
+          scale={xScale}
+          marginBottom={marginBottom}
           heightLimit={heightLimit}
         />
       </svg>
     )
   }
 }
-
-export default BarChart;

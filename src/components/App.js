@@ -5,7 +5,7 @@ import BarChart from './BarChart';
 
 import '../stylesheets/App.css';
 
-class App extends Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ class App extends Component {
         crime: parseInt(row["Violent crime"].replace(/,/, ''), 10)
       };
     }).then((data) => {
-      this.setState({data: data})
+      this.setState({data: data.slice(0,20)})
     });
   }
 
@@ -35,5 +35,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

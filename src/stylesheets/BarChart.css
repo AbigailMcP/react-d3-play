@@ -1,0 +1,4 @@
+.x-axis text {
+  transform: rotate(-45deg);
+  text-anchor: end;
+}
