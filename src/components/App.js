@@ -30,7 +30,7 @@ class App extends Component {
       <div className='container'>
         <h1 className='title'>Welcome to the best visualisation page that ever got visualised</h1>
         <p className='intro'>Look at this c00l data</p>
-        {this.state.data ? <BarChart data={this.state.data} columnWidth={25} size={[500, 500]}/> : null}
+        {this.state.data ? <BarChart data={this.state.data} size={[500, 500]}/> : null}
       </div>
     );
   }
