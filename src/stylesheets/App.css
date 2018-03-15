@@ -10,3 +10,8 @@
 .intro {
   margin-bottom: 100px;
 }
+
+.highchart {
+  display: flex;
+  justify-content: center;
+}

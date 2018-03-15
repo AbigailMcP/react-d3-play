@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { csv } from 'd3-fetch';
 
+import HighChart from './HighChart';
 import BarChart from './BarChart';
 
 import '../stylesheets/App.css';
@@ -33,18 +34,16 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <div className='container'>
-        <h1 className='title'>Welcome to the best visualisation page that ever got visualised</h1>
-        <p className='intro'>Look at this c00l data</p>
-        {this.state.data ?
+        <h1 className='title'>Welcome</h1>
+        <p className='intro'>Woah</p>
+        {this.state.data &&
           <div>
-            <div><BarChart data={this.state.data} value='vehicleTheft' size={[1000, 500]}/></div>
-            <div><BarChart data={this.state.data} value='crimeRate' size={[1000, 500]}/></div>
-            <div><BarChart data={this.state.data} value='crime' size={[1000, 500]}/></div>
+            <BarChart data={this.state.data} value='crime' size={[1000, 500]}/>
+            <p className='intro'>Holy moley there's more</p>
+            <HighChart data={this.state.data} value='crime' size={[1000, 500]}/>
           </div>
-          : null
         }
       </div>
     );
